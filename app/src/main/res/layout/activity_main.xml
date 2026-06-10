@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <com.example.a0610.PathView
+        android:id="@+id/pathView"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:background="#EEEEEE"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/pathView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView android:id="@+id/tvStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="狀態: 準備中" android:textSize="18sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tvSteps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="步數: 0" />
+            <TextView android:id="@+id/tvDistance" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="距離: 0.00 m" />
+            <TextView android:id="@+id/tvHeading" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="方向: 0.0°" />
+            <TextView android:id="@+id/tvStepLen" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="步長: 0.70m" />
+            <TextView android:id="@+id/tvArea" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="面積: -- ㎡" android:textColor="#E91E63" android:textSize="20sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchDynamic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="動態步長 (Weinberg)"
+                android:checked="true" />
+
+            <EditText
+                android:id="@+id/etStepLength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="手動步長 (m)"
+                android:inputType="numberDecimal"
+                android:text="0.7"
+                android:enabled="false" />
+
+            <Button android:id="@+id/btnStartPause" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="開始記錄" />
+            <Button android:id="@+id/btnCalculate" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="計算面積 (閉環修正)" />
+            <Button android:id="@+id/btnSnapHeading" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="方向對齊 (45°)" />
+            <Button android:id="@+id/btnCalibrate" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="步長校準" />
+            <Button android:id="@+id/btnReset" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="重設全部" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
